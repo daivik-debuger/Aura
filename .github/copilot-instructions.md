@@ -18,6 +18,8 @@ Aura is a **financial safety companion PWA** designed for neurodivergent individ
 - **Caches**: SHA256-based audio caching in `voice-server/audio_cache/`
 - **Internet Agent**: Exposes `/api/stock_check` which dynamically hits `yfinance` to parse live US market data.
 - **Biometric Hub (TRIBE v2)**: Exposes `/watch_sync` to ingest real-time JSON packets (Heart Rate, HRV, App Context) from an Apple Watch iOS Shortcut to perform dynamic stress mapping and trigger UI changes.
+- **Tunnel Bridge**: To bypass local firewalls, use `localtunnel` (e.g., `npx localtunnel --port 5050`) to generate a public URL for the iOS Shortcut.
+- **Session Management**: Auth state is stored in `localStorage` (`aura_is_logged_in`). The `logout()` function in `auth.js` clears Firebase sessions and all local state before refreshing the page.
 
 ### Module Structure
 js/
