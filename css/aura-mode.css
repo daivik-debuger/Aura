@@ -1,0 +1,361 @@
+/* ============================================
+   AURA — Aura Mode (Accessibility Override)
+   High-contrast, large text, bold visual cues
+   WCAG AAA compliant
+   ============================================ */
+
+body.aura-mode .bg-ambient {
+  display: none; /* No decorative elements in Aura Mode */
+}
+
+/* ── Cards: Solid borders, no glass ──────── */
+body.aura-mode .metric-card {
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  background: var(--bg-card);
+  border: 2px solid var(--border);
+}
+
+/* Hide secondary metrics in Aura Mode for 'Liberty HUD' */
+body.aura-mode .metric-card:not(.metric-card--balance) {
+  display: none !important;
+}
+
+body.aura-mode .metric-card::before {
+  display: none;
+}
+
+body.aura-mode .metric-card:hover {
+  transform: none; /* No movement for motor-processing needs */
+  border-color: var(--accent);
+}
+
+body.aura-mode .metric-card--balance {
+  background: var(--bg-card);
+  border-color: var(--accent);
+  border-width: 3px;
+  grid-column: 1 / -1; /* Take full width */
+  text-align: center;
+}
+
+body.aura-mode .metric-card--balance .metric-value {
+  -webkit-text-fill-color: var(--accent);
+  background: none;
+  font-size: var(--font-size-hero);
+}
+
+/* ── Stronger labels ─────────────────────── */
+body.aura-mode .metric-label {
+  font-size: var(--font-size-md);
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: 2px;
+}
+
+body.aura-mode .metric-value {
+  font-size: var(--font-size-3xl);
+}
+
+body.aura-mode .metric-subtitle {
+  font-size: var(--font-size-base);
+  color: var(--text-secondary);
+}
+
+/* ── Safety Badge: Larger, bolder ────────── */
+body.aura-mode .safety-badge {
+  font-size: var(--font-size-md);
+  padding: var(--space-sm) var(--space-lg);
+  border: 2px solid currentColor;
+}
+
+body.aura-mode .safety-dot {
+  width: 12px;
+  height: 12px;
+}
+
+/* ── Greeting: Bigger ────────────────────── */
+body.aura-mode .greeting-name {
+  font-size: var(--font-size-2xl);
+}
+
+body.aura-mode .greeting-time {
+  font-size: var(--font-size-base);
+  color: var(--text-secondary);
+}
+
+/* ── Brief Button: Extra prominent ───────── */
+body.aura-mode .aura-brief-btn {
+  min-height: 64px;
+  font-size: var(--font-size-lg);
+  border-radius: var(--radius-xl);
+  background: var(--accent);
+  color: var(--bg-primary);
+  box-shadow: none;
+  border: 3px solid var(--accent);
+}
+
+body.aura-mode .aura-brief-btn::before {
+  display: none; /* No shimmer animation */
+}
+
+body.aura-mode .aura-brief-btn:hover {
+  transform: none;
+  background: var(--accent-hover);
+  box-shadow: 0 0 0 4px var(--accent-soft);
+}
+
+body.aura-mode .aura-brief-btn:focus-visible {
+  outline: 4px solid var(--text-primary);
+  outline-offset: 4px;
+}
+
+/* ── Transactions: Clearer ───────────────── */
+body.aura-mode .transaction-item {
+  backdrop-filter: none;
+  background: var(--bg-card);
+  border: 2px solid var(--border);
+  padding: var(--space-lg);
+  gap: var(--space-lg);
+}
+
+body.aura-mode .transaction-item.large-amount {
+  border-width: 3px;
+  border-color: var(--danger);
+  background: var(--danger-soft);
+}
+
+body.aura-mode .tx-icon {
+  width: 52px;
+  height: 52px;
+  font-size: 26px;
+  border: 2px solid var(--border);
+}
+
+body.aura-mode .tx-merchant {
+  font-size: var(--font-size-md);
+  font-weight: 600;
+}
+
+body.aura-mode .tx-category {
+  font-size: var(--font-size-sm);
+}
+
+body.aura-mode .tx-amount {
+  font-size: var(--font-size-md);
+}
+
+body.aura-mode .tx-time {
+  font-size: var(--font-size-sm);
+}
+
+/* ── Section Headers ─────────────────────── */
+body.aura-mode .section-title {
+  font-size: var(--font-size-lg);
+  font-weight: 700;
+}
+
+/* ── Mode Toggle ─────────────────────────── */
+body.aura-mode .mode-btn {
+  width: 48px;
+  height: 48px;
+  min-height: 48px;
+  min-width: 48px;
+  font-size: 20px;
+}
+
+body.aura-mode .mode-btn.active {
+  background: var(--accent);
+  color: var(--bg-primary);
+}
+
+/* ── Voice Indicator: More visible ───────── */
+body.aura-mode .voice-indicator {
+  padding: var(--space-md) var(--space-xl);
+  font-size: var(--font-size-md);
+  font-weight: 600;
+  border: 2px solid var(--accent);
+}
+
+body.aura-mode .voice-bar {
+  width: 5px;
+}
+
+/* ── Alert Toast: Maximum visibility ─────── */
+body.aura-mode .alert-toast {
+  border-width: 3px;
+  padding: var(--space-lg);
+}
+
+body.aura-mode .alert-toast-title {
+  font-size: var(--font-size-md);
+  font-weight: 700;
+}
+
+body.aura-mode .alert-toast-message {
+  font-size: var(--font-size-base);
+}
+
+/* ── Focus: Universal thick outlines ─────── */
+body.aura-mode *:focus-visible {
+  outline: 4px solid var(--accent) !important;
+  outline-offset: 4px !important;
+}
+
+/* ── Spacing: More breathing room ────────── */
+body.aura-mode .app-shell {
+  padding: var(--space-xl);
+  padding-bottom: 120px;
+}
+
+body.aura-mode .metrics-grid {
+  gap: var(--space-lg);
+}
+
+body.aura-mode .transaction-list {
+  gap: var(--space-md);
+}
+
+/* ── Aura Mode Label ─────────────────────── */
+body.aura-mode .aura-mode-label {
+  display: block;
+  text-align: center;
+  padding: var(--space-sm) var(--space-md);
+  background: var(--accent-soft);
+  border: 2px solid var(--accent);
+  border-radius: var(--radius-md);
+  color: var(--accent);
+  font-size: var(--font-size-sm);
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: var(--space-lg);
+}
+
+body:not(.aura-mode) .aura-mode-label {
+  display: none;
+}
+
+/* Focused Transaction Card overrides for Dynamic Reduction */
+.transaction-focused-card {
+  background: var(--bg-card);
+  border: 4px solid var(--accent);
+  border-radius: var(--radius-lg);
+  padding: var(--space-xl) var(--space-lg);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.tx-focus-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.memory-map-image {
+  width: 100%;
+  height: 120px;
+  border-radius: var(--radius-md);
+  background-size: cover;
+  background-position: center;
+  margin-bottom: var(--space-md);
+  border: 2px solid var(--glass-border);
+}
+
+.tx-icon-large {
+  font-size: 56px;
+}
+
+.tx-focus-merchant {
+  font-size: var(--font-size-xl);
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.tx-focus-amount {
+  font-family: var(--font-heading);
+  font-size: var(--font-size-3xl);
+  font-weight: 700;
+}
+
+.tx-focus-date {
+  font-size: var(--font-size-md);
+  color: var(--text-muted);
+}
+
+.tx-focus-controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: var(--space-md);
+  padding-top: var(--space-md);
+  border-top: 2px solid var(--glass-border);
+}
+
+.tx-focus-btn {
+  background: var(--glass-bg);
+  border: 2px solid var(--text-muted);
+  color: var(--text-primary);
+  padding: var(--space-sm) var(--space-md);
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-md);
+  font-weight: 700;
+  min-height: 56px;
+}
+
+.tx-focus-btn:hover {
+  background: var(--accent-light);
+  border-color: var(--accent);
+  color: var(--text-inverse);
+}
+
+.tx-focus-counter {
+  font-size: var(--font-size-md);
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+/* ── Market Pulse ────────────────────────── */
+.market-pulse-container {
+  margin-top: var(--space-2xl);
+  padding: var(--space-lg);
+  text-align: center;
+  position: relative;
+  border-radius: var(--radius-lg);
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.market-pulse-line {
+  height: 6px;
+  border-radius: 3px;
+  background: linear-gradient(90deg, transparent, var(--safe), transparent);
+  animation: pulse-line 4s infinite ease-in-out;
+  box-shadow: 0 0 15px var(--safe);
+  transition: all 0.5s;
+}
+
+.market-pulse-line.pulse-alert {
+  background: linear-gradient(90deg, transparent, var(--warning), transparent);
+  box-shadow: 0 0 20px var(--warning);
+  animation: pulse-line-alert 1s infinite ease-in-out;
+}
+
+@keyframes pulse-line {
+  0% { opacity: 0.3; transform: scaleX(0.8); }
+  50% { opacity: 1; transform: scaleX(1); }
+  100% { opacity: 0.3; transform: scaleX(0.8); }
+}
+
+@keyframes pulse-line-alert {
+  0% { opacity: 0.5; transform: scaleX(0.9); }
+  50% { opacity: 1; transform: scaleX(1.05); }
+  100% { opacity: 0.5; transform: scaleX(0.9); }
+}
+
+.demo-trend-btn {
+  margin-top: var(--space-md);
+  font-size: var(--font-size-sm);
+  padding: 4px 12px;
+}

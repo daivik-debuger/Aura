@@ -1,0 +1,185 @@
+{
+  "accounts": [
+    {
+      "id": "acc_001",
+      "owner": "Alex",
+      "balance": 2847.53,
+      "currency": "USD",
+      "safetyScore": 82,
+      "accountType": "checking",
+      "lastUpdated": "2026-04-06T10:00:00Z"
+    }
+  ],
+  "transactions": [
+    {
+      "id": "tx_001",
+      "accountId": "acc_001",
+      "amount": -12.50,
+      "merchant": "Starbucks",
+      "category": "food",
+      "timestamp": "2026-04-06T08:15:00Z",
+      "status": "completed",
+      "description": "Morning coffee"
+    },
+    {
+      "id": "tx_002",
+      "accountId": "acc_001",
+      "amount": -285.00,
+      "merchant": "Best Buy",
+      "category": "electronics",
+      "timestamp": "2026-04-06T09:30:00Z",
+      "status": "completed",
+      "description": "Wireless headphones"
+    },
+    {
+      "id": "tx_003",
+      "accountId": "acc_001",
+      "amount": -45.80,
+      "merchant": "Whole Foods Market",
+      "category": "groceries",
+      "timestamp": "2026-04-06T07:00:00Z",
+      "status": "completed",
+      "description": "Weekly groceries"
+    },
+    {
+      "id": "tx_004",
+      "accountId": "acc_001",
+      "amount": -9.99,
+      "merchant": "Spotify",
+      "category": "subscription",
+      "timestamp": "2026-04-05T00:00:00Z",
+      "status": "completed",
+      "description": "Monthly subscription"
+    },
+    {
+      "id": "tx_005",
+      "accountId": "acc_001",
+      "amount": 1500.00,
+      "merchant": "Payroll - Acme Corp",
+      "category": "income",
+      "timestamp": "2026-04-04T09:00:00Z",
+      "status": "completed",
+      "description": "Bi-weekly paycheck"
+    },
+    {
+      "id": "tx_006",
+      "accountId": "acc_001",
+      "amount": -68.00,
+      "merchant": "Shell Gas Station",
+      "category": "transportation",
+      "timestamp": "2026-04-05T16:30:00Z",
+      "status": "completed",
+      "description": "Gas fill-up"
+    },
+    {
+      "id": "tx_007",
+      "accountId": "acc_001",
+      "amount": -22.40,
+      "merchant": "Netflix",
+      "category": "subscription",
+      "timestamp": "2026-04-03T00:00:00Z",
+      "status": "completed",
+      "description": "Monthly subscription"
+    },
+    {
+      "id": "tx_008",
+      "accountId": "acc_001",
+      "amount": -156.00,
+      "merchant": "Target",
+      "category": "shopping",
+      "timestamp": "2026-04-05T14:20:00Z",
+      "status": "completed",
+      "description": "Household supplies"
+    },
+    {
+      "id": "tx_009",
+      "accountId": "acc_001",
+      "amount": -34.50,
+      "merchant": "Chipotle",
+      "category": "food",
+      "timestamp": "2026-04-06T12:00:00Z",
+      "status": "completed",
+      "description": "Lunch with friend"
+    },
+    {
+      "id": "tx_010",
+      "accountId": "acc_001",
+      "amount": -750.00,
+      "merchant": "Rent Payment",
+      "category": "housing",
+      "timestamp": "2026-04-01T00:00:00Z",
+      "status": "completed",
+      "description": "Monthly rent"
+    },
+    {
+      "id": "tx_011",
+      "accountId": "acc_001",
+      "amount": -18.75,
+      "merchant": "Uber",
+      "category": "transportation",
+      "timestamp": "2026-04-06T10:45:00Z",
+      "status": "completed",
+      "description": "Ride to office"
+    },
+    {
+      "id": "tx_012",
+      "accountId": "acc_001",
+      "amount": 200.00,
+      "merchant": "Venmo - Sarah M.",
+      "category": "transfer",
+      "timestamp": "2026-04-05T11:00:00Z",
+      "status": "completed",
+      "description": "Dinner split reimbursement"
+    },
+    {
+      "id": "tx_013",
+      "accountId": "acc_001",
+      "amount": -89.00,
+      "merchant": "Amazon",
+      "category": "shopping",
+      "timestamp": "2026-04-04T19:15:00Z",
+      "status": "completed",
+      "description": "Book order"
+    },
+    {
+      "id": "tx_014",
+      "accountId": "acc_001",
+      "amount": -42.00,
+      "merchant": "CVS Pharmacy",
+      "category": "health",
+      "timestamp": "2026-04-06T09:00:00Z",
+      "status": "completed",
+      "description": "Medications"
+    },
+    {
+      "id": "tx_015",
+      "accountId": "acc_001",
+      "amount": -320.00,
+      "merchant": "Apple Store",
+      "category": "electronics",
+      "timestamp": "2026-04-06T11:30:00Z",
+      "status": "pending",
+      "description": "AirPods Max"
+    }
+  ],
+  "alerts": [
+    {
+      "id": "alert_001",
+      "accountId": "acc_001",
+      "type": "large_transaction",
+      "transactionId": "tx_002",
+      "message": "Large purchase detected: $285.00 at Best Buy",
+      "timestamp": "2026-04-06T09:30:00Z",
+      "read": false
+    },
+    {
+      "id": "alert_002",
+      "accountId": "acc_001",
+      "type": "large_transaction",
+      "transactionId": "tx_015",
+      "message": "Large purchase detected: $320.00 at Apple Store",
+      "timestamp": "2026-04-06T11:30:00Z",
+      "read": false
+    }
+  ]
+}

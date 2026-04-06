@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="description" content="Aura — A calm financial safety companion for neurodivergent individuals. Simplifies banking data into spoken alerts.">
+  <meta name="theme-color" content="#0d1420">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  
+  <title>Aura — Financial Safety Companion</title>
+  
+  <link rel="manifest" href="/manifest.json">
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="/css/design-tokens.css">
+  <link rel="stylesheet" href="/css/standard-mode.css">
+  <link rel="stylesheet" href="/css/aura-mode.css">
+  <link rel="stylesheet" href="/css/animations.css">
+  <link rel="stylesheet" href="/css/pages.css">
+  <link rel="stylesheet" href="/css/auth.css">
+  <link rel="stylesheet" href="/css/medical-modes.css">
+
+  <!-- App Script -->
+  <script type="module" src="/js/trend-agent.js"></script>
+  <script type="module" src="/js/app.js"></script>
+</head>
+<body class="standard-mode">
+
+  <!-- Background Ambient Orbs (Standard Mode only) -->
+  <div class="bg-ambient" aria-hidden="true"></div>
+
+  <!-- App Shell -->
+  <main class="app-shell" role="main">
+
+    <!-- Header -->
+    <header class="app-header">
+      <div class="app-logo">
+        <div class="logo-icon" aria-hidden="true">✦</div>
+        <span class="logo-text">Aura</span>
+      </div>
+      <div class="header-controls">
+        <!-- Guardian Link Status -->
+        <div id="guardian-link" class="guardian-link" title="Guardian Link Active">
+          <span class="guardian-dot"></span>
+          <span class="guardian-label">Guardian</span>
+        </div>
+
+        <!-- Vision Profile Selector -->
+        <select id="medical-profile-select" class="medical-profile-dropdown" aria-label="Medical Vision Profile">
+          <option value="none">Standard Vision</option>
+          <option value="glaucoma">Glaucoma Profile</option>
+          <option value="macular">Macular Profile</option>
+          <option value="total_blindness">Total Blindness</option>
+          <option value="adhd">ADHD (Focus Lock)</option>
+          <option value="dyslexia">Dyslexia (Legibility)</option>
+        </select>
+
+        <div class="mode-toggle-group" role="tablist" aria-label="UI Mode">
+          <button id="mode-standard" class="mode-btn active" role="tab" aria-selected="true" aria-label="Standard Mode" title="Standard Mode">
+            ☀️
+          </button>
+          <button id="mode-aura" class="mode-btn" role="tab" aria-selected="false" aria-label="Aura Mode — High Contrast" title="Aura Mode">
+            ♿
+          </button>
+        </div>
+
+        <button id="auth-signout-btn" class="header-action-btn" title="Sign Out" aria-label="Sign Out">
+          ⏻
+        </button>
+      </div>
+      </div>
+    </header>
+
+    <!-- Aura Mode Label -->
+    <div class="aura-mode-label" aria-live="polite">
+      ♿ AURA MODE — ENHANCED ACCESSIBILITY
+    </div>
+
+    <!-- Home View (dashboard) -->
+    <div id="home-view">
+
+    <!-- Greeting -->
+    <section class="greeting-section" aria-label="Greeting">
+      <div id="greeting-time" class="greeting-time">Good morning</div>
+      <h1 class="greeting-name" id="greeting-name">Alex</h1>
+    </section>
+
+    <!-- 4-Button Command Center -->
+    <nav class="command-center" aria-label="Aura Actions">
+      <button id="cmd-talk" class="command-btn command-btn--talk" aria-label="Talk to Aura">
+        <span class="command-btn-icon">🎤</span>
+        <span>Talk to Aura</span>
+      </button>
+      <button id="cmd-scan" class="command-btn command-btn--scan" aria-label="Scan a document">
+        <span class="command-btn-icon">📄</span>
+        <span>Scan Paper</span>
+      </button>
+      <button id="cmd-safety" class="command-btn command-btn--safety" aria-label="Check safety shield">
+        <span class="command-btn-icon">🛡️</span>
+        <span>Check Safety</span>
+      </button>
+      <button id="cmd-family" class="command-btn command-btn--family" aria-label="Family Link">
+        <span class="command-btn-icon">👨‍👩‍👧</span>
+        <span>Family Link</span>
+      </button>
+    </nav>
+
+    <!-- 3 Key Metrics -->
+    <section class="metrics-grid" aria-label="Financial Overview">
+
+      <!-- Balance Card -->
+      <article class="metric-card metric-card--balance" aria-label="Current Balance">
+        <div class="metric-header">
+          <span class="metric-label">Current Balance</span>
+          <div class="metric-icon metric-icon--balance" aria-hidden="true">💎</div>
+        </div>
+        <div id="balance-value" class="metric-value">$0.00</div>
+        <div id="balance-subtitle" class="metric-subtitle">Loading...</div>
+      </article>
+
+      <!-- Safety Status Card -->
+      <article class="metric-card" aria-label="Safety Status">
+        <div class="metric-header">
+          <span class="metric-label">Safety Status</span>
+          <div class="metric-icon metric-icon--safety" aria-hidden="true">🛡️</div>
+        </div>
+        <div id="safety-value" class="metric-value">—</div>
+        <div id="safety-badge" class="safety-badge safety-badge--safe">
+          <span id="safety-dot" class="safety-dot"></span>
+          <span id="safety-label">Checking...</span>
+        </div>
+      </article>
+
+      <!-- Today's Spend Card -->
+      <article class="metric-card" aria-label="Today's Spending">
+        <div class="metric-header">
+          <span class="metric-label">Today's Spend</span>
+          <div class="metric-icon metric-icon--spend" aria-hidden="true">📊</div>
+        </div>
+        <div id="spend-value" class="metric-value">$0.00</div>
+        <div id="spend-subtitle" class="metric-subtitle">Loading...</div>
+      </article>
+
+    </section>
+
+    <!-- Aura Brief Button -->
+    <button id="aura-brief-btn" class="aura-brief-btn" aria-label="Listen to your Aura financial briefing">
+      <span id="aura-brief-icon" class="aura-brief-icon" aria-hidden="true">🔊</span>
+      <span>Aura Brief</span>
+    </button>
+
+    <!-- Demo Transaction Button -->
+    <button id="demo-transaction-btn" class="aura-brief-btn" style="background: linear-gradient(135deg, hsl(280, 60%, 50%), hsl(320, 60%, 50%)); box-shadow: 0 4px 20px hsla(300, 60%, 50%, 0.3); margin-bottom: var(--space-xl);" aria-label="Simulate a large transaction for demo purposes">
+      <span aria-hidden="true">⚡</span>
+      <span>Simulate $200+ Transaction</span>
+    </button>
+
+    <!-- Recent Transactions -->
+    <section aria-label="Recent Transactions">
+      <div class="section-header">
+        <h2 class="section-title">Recent Activity</h2>
+      </div>
+      <div id="transaction-list" class="transaction-list" role="list">
+        <!-- Dynamically populated -->
+      </div>
+    </section>
+
+    <!-- Market Pulse & Trend-Guard Agent -->
+    <div id="market-pulse-container" class="market-pulse-container" aria-hidden="true" title="Aura Trend-Guard Prediction Pulse">
+      <div id="market-pulse-line" class="market-pulse-line"></div>
+      <button id="demo-trend-anomaly-btn" class="demo-chip-btn demo-trend-btn">⚡ Demo: Stock Drop</button>
+    </div>
+
+    </div><!-- /home-view -->
+
+    <!-- Page Container (for Talk, Scan, Shield, Family views) -->
+    <div id="page-container"></div>
+
+  </main>
+
+  <!-- Voice Activity Indicator -->
+  <div id="voice-indicator" class="voice-indicator" aria-live="assertive" aria-label="Aura is speaking">
+    <div class="voice-bars" aria-hidden="true">
+      <span class="voice-bar"></span>
+      <span class="voice-bar"></span>
+      <span class="voice-bar"></span>
+      <span class="voice-bar"></span>
+      <span class="voice-bar"></span>
+    </div>
+    <span>Aura is speaking...</span>
+  </div>
+
+  <!-- Large Transaction Alert Toast -->
+  <div id="alert-toast" class="alert-toast" role="alert" aria-live="assertive">
+    <span class="alert-toast-icon" aria-hidden="true">🚨</span>
+    <div class="alert-toast-content">
+      <div id="alert-toast-title" class="alert-toast-title">Large Transaction</div>
+      <div id="alert-toast-message" class="alert-toast-message">—</div>
+      <div id="alert-toast-guardian" class="alert-toast-guardian">🔗 Guardian has been notified</div>
+    </div>
+    <button id="alert-close" class="alert-toast-close" aria-label="Dismiss alert">✕</button>
+  </div>
+
+  <!-- Guardian Notification Simulation (second device) -->
+  <div id="guardian-toast" class="guardian-toast" role="status" aria-live="polite">
+    <div class="guardian-toast-header">
+      <span>📱</span>
+      <span class="guardian-toast-device">Guardian's Device</span>
+    </div>
+    <div class="guardian-toast-body">
+      <div class="guardian-toast-app">Aura Guardian Alert</div>
+      <div id="guardian-toast-message" class="guardian-toast-message">—</div>
+    </div>
+  </div>
+
+  <!-- Demo HUD: Simulate Watch/Stress Spike (Hackathon fallback) -->
+  <button id="demo-spike-btn" class="demo-trigger-btn" title="Simulate Watch Stress Spike">
+    <span class="heart-icon">💓</span>
+    <span class="heart-pulse"></span>
+  </button>
+
+</body>
+</html>
